@@ -1,0 +1,38 @@
+#include<GL/glu.h>
+#include<GL/gl.h>
+#include<GL/glut.h>
+
+void myInit()
+{
+glClearColor(1,0,0,1);
+}
+
+void draw()
+{
+glClear(GL_COLOR_BUFFER_BIT);
+glBegin(GL_LINES);
+glVertex2f(0.5f,0.5f);
+glVertex2f(-0.5f,0.5f);
+glVertex2f(-0.5f,-0.5f);
+glVertex2f(0.5f,-0.5f);
+
+
+
+glEnd();
+
+glFlush();
+}
+
+int main(int c, char*v[])
+{
+glutInit(&c,v);
+glutInitWindowPosition(100,100);
+glutInitWindowSize(500,500);
+glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
+glutCreateWindow("First Window");
+
+myInit();
+glutDisplayFunc(draw);
+glutMainLoop();
+return 0;
+}
